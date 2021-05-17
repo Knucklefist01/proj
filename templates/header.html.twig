@@ -1,0 +1,29 @@
+{%
+set navLinks = [
+    {"link": ".", "label": "Hem"},
+    {"link": "session", "label": "Session"},
+    {"link": "yatzy", "label": "Yatzy"},
+    {"link": "highscores", "label": "Highscores"},
+]
+%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/css/app.css">
+    <title>Document</title>
+</head>
+<body>
+<header>
+    <div class="headerText">
+        <h1>Välkommen till min sida!</h1>
+        <h3>Byggd på ramverket Laravel</h3>
+    </div>
+    <nav>
+    {% for link in navLinks %}
+        <a href="{{ link.link }}">{{ link.label }}</a>
+    {% endfor %}
+    </nav>
+</header>

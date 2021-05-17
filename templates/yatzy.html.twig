@@ -1,0 +1,82 @@
+{% include('header.html.twig') %}
+
+<main class="diceMain">
+    <form action="yatzyProcessor" method="post">
+        <input type="submit" name="resetSubmit" value="Nollställ">
+    </form>
+    <div class="yatzyGame">
+        <div class="gameArea">
+            <div class="area">
+            {% for value in hand %}
+                <img src="../resources/img/dice{{value}}.png" class="" alt="dice">
+            {% endfor %}
+            </div>
+            <div class="buttons">
+                <form action="yatzyProcessor" method="post">
+                
+                {% for x in range(0, 4) %}
+                    {% if throws > 0 %}
+                    <input type="checkbox" name="cube{{x}}" id="cube{{x}}" class="diceCheck" {% if x in lastKept %} checked {% endif %}>
+                    {% else %}
+                    <input type="checkbox" name="cube{{x}}" id="cube{{x}}" class="diceCheck" style="display: none">
+                    {% endif %}
+                {% endfor %}
+
+                {% if scoreLocked|length == 15 %}
+                    <div class="fullGame">GAME FINISHED! TOTAL: {{ scoreTotal }}</div>
+                {% elseif throws < 30 %}
+                    <input type="submit" value="Kasta" name="throwSubmit" id="throwSubmit">
+                {% endif %}
+                    
+                </form>
+
+                {% if throws >= 3 and throws < 3 %}
+                <h2>Välj dem du vill behålla eller fyll i en poäng</h2>
+                {% elseif throws >= 3 %}
+                <h2>Fyll i en poäng i tabellen till höger</h2>
+                {% endif %}
+                <h2>{{ (3 - throws) }} Kast kvar</h2>
+            </div>
+        </div>
+        <div class="scoreTable">
+            <table>
+            {% for cat in scoreCategories %}
+                <tr>
+                    <td>{{ cat }}</td>
+
+                    {% if scoreLocked[cat] is defined %}
+                        <td>{{ scoreLocked[cat] }}</td>
+
+                    {% elseif throws > 0 and optionsAvailable == false %}
+                        <td class="availableOption">
+                            <form action="yatzyProcessor" method="post">
+                                <input type="hidden" name="category" value="{{ cat }}">
+                                <input type="hidden" name="points" value="0">
+                                <input type="submit" name="pointsSubmit" value="0">
+                            </form>
+                        </td>
+                    {% elseif scoreOptions[cat] is defined %}
+                        <td class="availableOption">
+                            <form action="yatzyProcessor" method="post">
+                                <input type="hidden" name="category" value="{{ cat }}">
+                                <input type="hidden" name="points" value="{{ scoreOptions[cat] }}">
+                                <input type="submit" name="pointsSubmit" value="{{ scoreOptions[cat] }}">
+                            </form>
+                        </td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                </tr>
+
+            {% endfor %}
+
+                <tr>
+                    <td>TOTAL</td>
+                    <td>{{ scoreTotal }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+
+{% include('footer.html.twig') %}

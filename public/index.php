@@ -15,6 +15,11 @@ if ($_SERVER['APP_DEBUG']) {
     Debug::enable();
 }
 
+if (php_sapi_name() !== "cli") {
+    session_name(preg_replace("/[^a-z\d]/i", "", __DIR__));
+    session_start();
+}
+
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);

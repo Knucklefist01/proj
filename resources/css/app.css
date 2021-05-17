@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    padding: 0 2vh;
+    margin-top: 2vh;
+}
+
+header .headerText {
+    width: 100%;
+    height: 6vh;
+    padding-bottom: 1vh;
+    border-bottom: 2px solid rgb(189, 189, 189);
+}
+
+.headerText h1 {
+    width: 100%;
+    height: 3vh;
+    font-size: 3vh;
+    margin: 0;
+}
+.headerText h3 {
+    width: 100%;
+    height: 2vh;
+    font-size: 1.8vh;
+    line-height: 2vh;
+    font-weight: 400;
+    margin: 0;
+}
+
+header nav {
+    width: 100%;
+    height: 4vh;
+    display: flex;
+    justify-content: flex-start;
+}
+
+header nav a {
+    min-width: 10%;
+    height: 100%;
+    padding: 0 1vw;
+    font-size: 2vh;
+    text-align: center;
+    line-height: 4vh;
+    background-color: rgb(197, 197, 197);
+    display: inline-block;
+}
+
+main {
+    width: 100%;
+    min-height: 80vh;
+    padding: 2vw;
+}
+
+main img {
+    width: 100px;
+}
+
+footer {
+    width: 100%;
+    height: 8vh;
+    background-color: grey;
+    color: white;
+}
+
+
+
+/* ------------------------------------------------------------------- */
+/* --- Throw --------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+
+
+
+
+/* ------------------------------------------------------------------- */
+/* --- Game 21 ------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+form input[type=submit] {
+    margin-bottom: 0.5vh;
+}
+
+.scoreboard {
+    width: 100%;
+}
+
+.scoreboard h1 {
+    width: 100%;
+    height: 4vh;
+    margin: 0;
+    font-size: 3vh;
+    text-align: center;
+}
+
+.scoreboard .scores {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.scores .scoreColumn {
+    width: 50%;
+    min-height: 4vh;
+    border: 1px solid black;
+    text-align: center;
+    position: relative;
+}
+
+.scoreColumn {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3vh;
+}
+
+.scoreColumn h2 {
+    width: 100%;
+}
+
+.scoreColumn .columnTotal {
+    width: 100%;
+    height: 2vh;
+    position: absolute;
+    bottom: 0;
+}
+
+.scoreColumn .graphicHand {
+    width: 30%;
+    margin-left: 35%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+.scoreColumn img {
+    width: 50px;
+}
+
+h1.compWon {
+    color: red;
+}
+
+h1.playerWon {
+    color: green;
+}
+
+.postRoundOptions {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.previousResults {
+    width: 100%;
+    height: 2vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.previousColumn {
+    width: 30%;
+    height: 2vh;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Yatzy --------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+.yatzyGame {
+    width: 100%;
+    height: 60vh;
+    border: 1px solid black
+}
+
+.yatzyGame .gameArea {
+    width: 80%;
+    height: 100%;
+    float: left;
+
+}
+
+.gameArea .area,
+.gameArea .buttons,
+.gameArea .hand {
+    width: 100%;
+    border: 1px solid black
+}
+
+.gameArea .area {
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.gameArea .buttons {
+    height: 40%;
+    position: relative;
+}
+
+.buttons form {
+    display: flex;
+    justify-content: space-around;
+}
+.buttons h2 {
+    text-align: center;
+}
+
+.buttons #throwSubmit {
+    width: 10vh;
+    height: 5vh;
+    position: absolute;
+    bottom: 1vh;
+}
+
+.buttons .fullGame {
+    font-size: 30px;
+    font-weight: 600;
+    color: green;
+
+    position: absolute;
+    bottom: 1vh;
+}
+
+.yatzyGame .scoreTable {
+    width: 20%;
+    height: 100%;
+    float: right;
+}
+
+.scoreTable table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.scoreTable table tr {
+    width: 100%;
+}
+
+.scoreTable table tr td {
+    border: 1px solid black;
+}
+
+.availableOption input[type=submit] {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+    font-weight: 900;
+    text-decoration: underline;
+    color: red;
+    background-color: transparent;
+}
+.availableOption input[type=submit]:hover {
+    background-color: black;
+}
+
+.scoreTable table tr td:nth-child(1) {
+    width: 70%;
+    padding-left: 7%;
+    font-weight: 900;
+}
+
+.scoreTable table tr td:nth-child(2) {
+    width: 30%;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Books --------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+.booksMain {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.book {
+    width: 20%;
+    height: auto;
+    text-align: center;
+}
+
+.book .image {
+    width: 100%;
+}
+
+.book .image img {
+    width: 100%;
+}
+
+.book .title {
+    font-size: 3vh;
+    font-weight: 900;
+}
+
+.book .author {
+    font-size: 2vh;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Scores --------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+.scoresTable {
+    width: 100%;
+    text-align: center;
+}
+
+.scoresTable tr {
+    height: 3vh;
+    font-size: 2.5vh;
+    line-height: 3vh;
+}
