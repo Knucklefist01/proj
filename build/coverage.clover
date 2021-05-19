@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1621361664">
-  <project timestamp="1621361664">
+<coverage generated="1621424937">
+  <project timestamp="1621424937">
     <file name="C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\app\config\bundles.php">
       <line num="4" type="stmt" count="0"/>
       <metrics loc="15" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="1" coveredelements="0"/>
@@ -122,9 +122,9 @@
     </file>
     <file name="C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\app\src\Controller\YatzyProcessor.php">
       <class name="App\Controller\YatzyProcessor" namespace="global">
-        <metrics complexity="10" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="26" coveredelements="0"/>
+        <metrics complexity="11" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="29" coveredelements="0"/>
       </class>
-      <line num="19" type="method" name="__invoke" visibility="public" complexity="10" crap="110" count="0"/>
+      <line num="19" type="method" name="__invoke" visibility="public" complexity="11" crap="132" count="0"/>
       <line num="21" type="stmt" count="0"/>
       <line num="22" type="stmt" count="0"/>
       <line num="24" type="stmt" count="0"/>
@@ -142,15 +142,18 @@
       <line num="41" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
       <line num="43" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
       <line num="47" type="stmt" count="0"/>
       <line num="49" type="stmt" count="0"/>
-      <line num="50" type="stmt" count="0"/>
-      <line num="52" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
       <line num="53" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <metrics loc="61" ncloc="55" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="26" coveredelements="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <metrics loc="65" ncloc="59" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="29" coveredelements="0"/>
     </file>
     <file name="C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\app\src\Dice\Dice.php">
       <class name="App\Dice\Dice" namespace="global">
@@ -417,6 +420,6 @@
       <line num="20" type="stmt" count="0"/>
       <metrics loc="50" ncloc="17" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
     </file>
-    <metrics files="16" loc="910" ncloc="788" classes="14" methods="40" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="286" coveredstatements="0" elements="326" coveredelements="0"/>
+    <metrics files="16" loc="914" ncloc="792" classes="14" methods="40" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="289" coveredstatements="0" elements="329" coveredelements="0"/>
   </project>
 </coverage>
