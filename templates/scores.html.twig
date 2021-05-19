@@ -1,0 +1,42 @@
+{% include('header.html.twig') %}
+
+<main class="scoresMain">
+{#
+{{ dump(data) }}
+{{ dump(histo) }}
+{{ dump(debug) }}
+#}
+
+    <h2>Histogram</h2>
+    <div class="scoreHistory">
+        <div class="yAxis">
+            {% for y in range(0, 10) %}
+            <div class="yLabel">{{y * 5}}</div>
+            {% endfor %}
+        </div>
+
+        <div class="xAxis">
+            {% for x in range(1, 15) %}
+            <div class="xLabel">{{x * 25}}</div>
+            {% endfor %}
+        </div>
+
+        {% for pole in histo %}
+        <div class="pole part{{ loop.index }}" style="height: {{ (pole|length) * 8 }}px;"></div>
+        {% endfor %}
+    </div>
+    
+    <h2>Max Poäng: 375</h2>
+    <table class="scoresTable">
+        <tr>
+            <th>Poäng</th><th>% av Max</th>
+        </tr>
+        {% for score in data %}
+        <tr>
+            <td>{{ score.value }}</td><td>{{ (score.value / 375)|round(4) * 100 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+</main>
+
+{% include('footer.html.twig') %}

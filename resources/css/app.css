@@ -2,23 +2,38 @@
     box-sizing: border-box;
 }
 
+:root {
+    --navyBlue: rgb(0, 53, 83);
+    --lighterNavy: hsl(202, 100%, 40%);
+    --paleNavy: hsl(202, 50%, 70%);
+    --paleHover: hsl(202, 100%, 60%);
+}
+
 html,body {
     margin: 0;
     padding: 0;
 }
+body {
+    overflow-y: scroll;
+}
 
 header {
     width: 100%;
-    height: 10vh;
-    padding: 0 2vh;
-    margin-top: 2vh;
+    height: 7vh;
+
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--navyBlue);
+    color: white;
 }
 
 header .headerText {
-    width: 100%;
-    height: 6vh;
-    padding-bottom: 1vh;
-    border-bottom: 2px solid rgb(189, 189, 189);
+    width: auto;
+    height: 5vh;
+    margin-top: 1vh;
+
+    padding-left: 3vh;
 }
 
 .headerText h1 {
@@ -37,26 +52,38 @@ header .headerText {
 }
 
 header nav {
-    width: 100%;
-    height: 4vh;
+    width: auto;
+    height: 7vh;
+
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 header nav a {
     min-width: 10%;
     height: 100%;
-    padding: 0 1vw;
+    padding: 0 3vw;
     font-size: 2vh;
     text-align: center;
-    line-height: 4vh;
-    background-color: rgb(197, 197, 197);
+    line-height: 7vh;
     display: inline-block;
+    text-decoration: none;
+
+    background-color: var(--navyBlue);
+    color: white;
+
+    transition: background-color 0.2s, font-size 0.2s;
+}
+
+header nav a:hover {
+    background-color: var(--lighterNavy);
+    font-size: 3vh;
+    transition: background-color 0.2s, font-size 0.2s;
 }
 
 main {
     width: 100%;
-    min-height: 80vh;
+    min-height: 85vh;
     padding: 2vw;
 }
 
@@ -71,109 +98,37 @@ footer {
     color: white;
 }
 
-
-
-/* ------------------------------------------------------------------- */
-/* --- Throw --------------------------------------------------------- */
-/* ------------------------------------------------------------------- */
-
-
-
-
-
-/* ------------------------------------------------------------------- */
-/* --- Game 21 ------------------------------------------------------- */
-/* ------------------------------------------------------------------- */
-
-form input[type=submit] {
-    margin-bottom: 0.5vh;
-}
-
-.scoreboard {
-    width: 100%;
-}
-
-.scoreboard h1 {
-    width: 100%;
-    height: 4vh;
-    margin: 0;
-    font-size: 3vh;
-    text-align: center;
-}
-
-.scoreboard .scores {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.scores .scoreColumn {
-    width: 50%;
-    min-height: 4vh;
-    border: 1px solid black;
-    text-align: center;
-    position: relative;
-}
-
-.scoreColumn {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 3vh;
-}
-
-.scoreColumn h2 {
-    width: 100%;
-}
-
-.scoreColumn .columnTotal {
-    width: 100%;
-    height: 2vh;
-    position: absolute;
-    bottom: 0;
-}
-
-.scoreColumn .graphicHand {
-    width: 30%;
-    margin-left: 35%;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5px;
-}
-
-.scoreColumn img {
-    width: 50px;
-}
-
-h1.compWon {
-    color: red;
-}
-
-h1.playerWon {
-    color: green;
-}
-
-.postRoundOptions {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.previousResults {
-    width: 100%;
-    height: 2vh;
-    display: flex;
-    justify-content: space-around;
-}
-
-.previousColumn {
-    width: 30%;
-    height: 2vh;
-    text-align: center;
-}
-
 /* ------------------------------------------------------------------- */
 /* --- Yatzy --------------------------------------------------------- */
 /* ------------------------------------------------------------------- */
+
+#resetSubmit {
+    width: auto;
+    height: auto;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    background-color: var(--paleNavy);
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    transition:
+        background-color 0.2s,
+        box-shadow 0.2s,
+        transform 0.2s;
+}
+
+#resetSubmit:hover {
+    background-color: var(--paleHover);
+    transform: scale(1.1);
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+
+    transition:
+        background-color 0.2s,
+        box-shadow 0.2s,
+        transform 0.2s;
+}
 
 .yatzyGame {
     width: 100%;
@@ -216,10 +171,20 @@ h1.playerWon {
 }
 
 .buttons #throwSubmit {
-    width: 10vh;
+    width: 15vh;
     height: 5vh;
     position: absolute;
     bottom: 1vh;
+
+    background-color: var(--paleNavy);
+    border: 1px solid black;
+
+    transition: background-color 0.2s;
+}
+
+.buttons #throwSubmit:hover {
+    background-color: var(--paleHover);
+    transition: background-color 0.2s;
 }
 
 .buttons .fullGame {
@@ -228,7 +193,25 @@ h1.playerWon {
     color: green;
 
     position: absolute;
-    bottom: 1vh;
+    bottom: 9vh;
+}
+
+.buttons #saveSubmit {
+    width: auto;
+    height: 5vh;
+
+    background-color: rgb(150, 170, 146);
+    border: 1px solid black;
+
+    position: absolute;
+    bottom: 2vh;
+
+    transition: background-color 0.2s;
+}
+
+.buttons #saveSubmit:hover {
+    background-color: rgb(78, 182, 52);
+    transition: background-color 0.2s;
 }
 
 .yatzyGame .scoreTable {
@@ -322,4 +305,78 @@ h1.playerWon {
     height: 3vh;
     font-size: 2.5vh;
     line-height: 3vh;
+}
+
+.scoreHistory {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 40px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    border: 1px solid black;
+}
+
+.yAxis {
+    width: 20px;
+    height: calc( 100% + (100% / 10));
+    position: absolute;
+    top: -2px;
+    left: -20px;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.yAxis .yLabel {
+    width: 100%;
+    height: calc(100% / 10);
+    padding-left: 5px;
+    border-top: 2px solid black;
+}
+
+.xAxis {
+    width: calc( 100% );
+    height: 20px;
+    position: absolute;
+    bottom: -20px;
+    right: 0px;
+
+    display: flex;
+}
+
+.xAxis .xLabel {
+    width: calc(100% / 15);
+    height: 100%;
+    padding-left: 5px;
+    border-right: 2px solid black;
+    text-align: right;
+}
+.xAxis .xLabel:nth-child(1) {
+    border-left: 2px solid black;
+}
+
+.scoreHistory .pole {
+    width: calc(100% / 15);
+    height: 44px;
+
+    background-color: var(--lighterNavy);
+    border: 1px solid grey
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Session ------------------------------------------------------- */
+/* ------------------------------------------------------------------- */
+
+.destrotSession {
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+
+    background-color: red;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
 }

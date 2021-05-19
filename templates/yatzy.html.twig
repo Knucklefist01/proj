@@ -2,7 +2,7 @@
 
 <main class="diceMain">
     <form action="yatzyProcessor" method="post">
-        <input type="submit" name="resetSubmit" value="Nollställ">
+        <input type="submit" name="resetSubmit" id="resetSubmit" value="Nollställ (sparar inte i databas)">
     </form>
     <div class="yatzyGame">
         <div class="gameArea">
@@ -24,7 +24,8 @@
 
                 {% if scoreLocked|length == 15 %}
                     <div class="fullGame">GAME FINISHED! TOTAL: {{ scoreTotal }}</div>
-                {% elseif throws < 30 %}
+                    <input type="submit" name="saveSubmit" id="saveSubmit" value="Nollställ och Spara I Databas">
+                {% elseif throws < 3 %}
                     <input type="submit" value="Kasta" name="throwSubmit" id="throwSubmit">
                 {% endif %}
                     

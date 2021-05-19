@@ -131,7 +131,8 @@ class Yatzy
         $this->calcOptions();
     }
 
-    public function checkNumbers($counts){
+    public function checkNumbers($counts)
+    {
         if (isset($counts[1])) {
             $this->data["scoreOptions"]["Ones"] = $counts[1] * 1;
         }
@@ -152,7 +153,8 @@ class Yatzy
         }
     }
 
-    public function checkStraights($h){
+    public function checkStraights($h)
+    {
         if (in_array(1, $h) && in_array(2, $h) && in_array(3, $h) && in_array(4, $h)) {
             $this->data["scoreOptions"]["Small straight"] = 30;
         } else if (in_array(2, $h) && in_array(3, $h) && in_array(4, $h) && in_array(5, $h)) {
@@ -180,7 +182,7 @@ class Yatzy
         $this->checkNumbers($counts);
 
         $this->checkStraights($h);
-        
+
 
         if (count($counts) == 3) {
             // HANDEN BESTÅR AV MINST TRE SIFFROR
@@ -205,15 +207,16 @@ class Yatzy
             }
 
             $this->data["scoreOptions"]["Three of a kind"] = array_sum($this->data["hand"]);
-
         }
 
         if (count($counts) == 1) {
             // HANDEN BESTÅR AV 1 SIFFRA (YATZY)
             $this->data["scoreOptions"]["YAHTZEE"] = 50;
+            $this->data["scoreOptions"]["Four of a kind"] = array_sum($this->data["hand"]);
+            $this->data["scoreOptions"]["Three of a kind"] = array_sum($this->data["hand"]);
         }
 
-        $this->data["scoreOptions"]["Chance"] = array_sum ($h);
+        $this->data["scoreOptions"]["Chance"] = array_sum($h);
 
 
         $this->data["debug"][0] = array_keys($this->data["scoreOptions"]);
@@ -223,20 +226,12 @@ class Yatzy
         $occupied = array_keys($this->data["scoreLocked"]);
 
         foreach ($potential as $key) {
-            if ( !in_array($key, $occupied) ) {
+            if (!in_array($key, $occupied)) {
                 $this->data["optionsAvailable"] = true;
                 break;
             } else {
                 $this->data["optionsAvailable"] = false;
             }
         }
-
-        /*
-        if ($this->data["scoreOptions"] == []) {
-            $this->data["optionsAvailable"] = false;
-        } else {
-            $this->data["optionsAvailable"] = true;
-        }
-        */
     }
 }

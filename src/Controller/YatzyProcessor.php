@@ -5,9 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use App\Dice\Yatzy;
-// use App\Models\Score;
+use App\Entity\Score;
 
 /**
  * Controller for a sample route an controller class.
@@ -42,11 +41,21 @@ class YatzyProcessor extends AbstractController
             $_SESSION["yatzyGame"]->pickPoints($_POST["category"], $_POST["points"]);
         } else if (isset($_POST["resetSubmit"])) {
             $data = $_SESSION["yatzyGame"]->getData();
+            unset($_SESSION["yatzyGame"]);
 
-            // spara score i databasen
-            // $storeScore = new Score();
-            // $storeScore->points = $data["scoreTotal"];
-            // $storeScore->save();
+        } else if (isset($_POST["saveSubmit"])) {
+            $data = $_SESSION["yatzyGame"]->getData();
+
+            if ($data["scoreTotal"] > 0) {
+                // spara score i databasen
+                $entityManager = $this->getDoctrine()->getManager();
+
+                $storeScore = new Score();
+                $storeScore->setValue($data["scoreTotal"]);
+
+                $entityManager->persist($storeScore);
+                $entityManager->flush();
+            }
 
             unset($_SESSION["yatzyGame"]);
         }
