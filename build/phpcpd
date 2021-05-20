@@ -1,0 +1,14 @@
+phpcpd 6.0.3 by Sebastian Bergmann.
+
+Found 2 clones with 105 duplicated lines in 3 files:
+
+  - C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Bathroom.php:50-104 (54 lines)
+    C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Bedroom.php:50-104
+
+  - C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Bathroom.php:50-101 (51 lines)
+    C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Room.php:40-91
+
+5.95% duplicated lines out of 1766 total lines of code.
+Average size of duplication is 52 lines, largest clone has 54 of lines
+
+Time: 00:00.016, Memory: 4.00 MB

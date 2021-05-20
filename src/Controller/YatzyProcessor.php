@@ -42,7 +42,6 @@ class YatzyProcessor extends AbstractController
         } else if (isset($_POST["resetSubmit"])) {
             $data = $_SESSION["yatzyGame"]->getData();
             unset($_SESSION["yatzyGame"]);
-
         } else if (isset($_POST["saveSubmit"])) {
             $data = $_SESSION["yatzyGame"]->getData();
 

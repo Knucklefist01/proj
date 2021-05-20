@@ -153,19 +153,19 @@ class Yatzy
         }
     }
 
-    public function checkStraights($h)
+    public function checkStraights($hand)
     {
-        if (in_array(1, $h) && in_array(2, $h) && in_array(3, $h) && in_array(4, $h)) {
+        if (in_array(1, $hand) && in_array(2, $hand) && in_array(3, $hand) && in_array(4, $hand)) {
             $this->data["scoreOptions"]["Small straight"] = 30;
-        } else if (in_array(2, $h) && in_array(3, $h) && in_array(4, $h) && in_array(5, $h)) {
+        } else if (in_array(2, $hand) && in_array(3, $hand) && in_array(4, $hand) && in_array(5, $hand)) {
             $this->data["scoreOptions"]["Small straight"] = 30;
-        } else if (in_array(3, $h) && in_array(4, $h) && in_array(5, $h) && in_array(6, $h)) {
+        } else if (in_array(3, $hand) && in_array(4, $hand) && in_array(5, $hand) && in_array(6, $hand)) {
             $this->data["scoreOptions"]["Small straight"] = 30;
         }
 
-        if (in_array(1, $h) && in_array(2, $h) && in_array(3, $h) && in_array(4, $h) && in_array(5, $h)) {
+        if (in_array(1, $hand) && in_array(2, $hand) && in_array(3, $hand) && in_array(4, $hand) && in_array(5, $hand)) {
             $this->data["scoreOptions"]["Large straight"] = 40;
-        } else if (in_array(2, $h) && in_array(3, $h) && in_array(4, $h) && in_array(5, $h) && in_array(6, $h)) {
+        } else if (in_array(2, $hand) && in_array(3, $hand) && in_array(4, $hand) && in_array(5, $hand) && in_array(6, $hand)) {
             $this->data["scoreOptions"]["Large straight"] = 40;
         }
     }
@@ -175,13 +175,13 @@ class Yatzy
         $this->data["scoreOptions"] = [];
         $this->data["optionsAvailable"] = true;
 
-        $h = $this->data["hand"];
+        $hand = $this->data["hand"];
         $counts = array_count_values($this->data["hand"]);
 
 
         $this->checkNumbers($counts);
 
-        $this->checkStraights($h);
+        $this->checkStraights($hand);
 
 
         if (count($counts) == 3) {
@@ -216,7 +216,7 @@ class Yatzy
             $this->data["scoreOptions"]["Three of a kind"] = array_sum($this->data["hand"]);
         }
 
-        $this->data["scoreOptions"]["Chance"] = array_sum($h);
+        $this->data["scoreOptions"]["Chance"] = array_sum($hand);
 
 
         $this->data["debug"][0] = array_keys($this->data["scoreOptions"]);

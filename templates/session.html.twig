@@ -1,10 +1,9 @@
 {% include('header.html.twig') %}
 
-<main class="homeMain">
+
+<main>
+    {{ dump(data) }}
     <a href="session/destroy" class="destrotSession">DESTROY SESSION</a>
-    <pre>
-        {{ dump(data) }}
-    </pre>
 </main>
 
 {% include('footer.html.twig') %}

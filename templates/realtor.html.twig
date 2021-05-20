@@ -1,0 +1,22 @@
+{% include('header.html.twig') %}
+
+{# {{ dump(debug) }} #}
+
+{{ dump(objects) }}
+<main class="houseMain">
+    
+
+    {% for house in objects %}
+    <a href="houses/{{house.getId()}}">
+        <div class="house">
+            <img src="https://cdn.pixabay.com/photo/2020/01/23/11/02/sweden-4787445_1280.jpg">
+            <h2>{{house.getAddress()}}</h2>
+            <div class="rooms">Antal rum: {{ house.getRooms|length }}</div>
+            <div class="details">Detaljer >></div>
+        </div>
+    </a>
+    {% endfor %}
+
+</main>
+
+{% include('footer.html.twig') %}
