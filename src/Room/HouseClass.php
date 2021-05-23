@@ -11,12 +11,14 @@ class HouseClass
 {
     private ?int $id;
     private ?string $address;
+    private ?string $description;
     private ?array $rooms = [];
 
-    public function __construct($id, $address)
+    public function __construct($id, $address, $description)
     {
         $this->id = $id;
         $this->address = $address;
+        $this->description = $description;
     }
 
     public function getId()
@@ -37,5 +39,10 @@ class HouseClass
     public function getRooms()
     {
         return $this->rooms;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

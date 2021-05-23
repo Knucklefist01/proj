@@ -10,6 +10,9 @@ set navLinks = [
 {%
 set baseUrl = app.request.getBaseURL()|replace({"public": ""})
 %}
+{%
+set current = app.request.getPathInfo()|split('/')
+%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +20,21 @@ set baseUrl = app.request.getBaseURL()|replace({"public": ""})
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{baseUrl}}/resources/css/app.css">
-    <title>Document</title>
+    {% for link in navLinks %}
+    {% if link.link == current[1] %}
+    <title>MVC Projekt | {{link.label}}</title>
+    {% endif %}
+    {% endfor %}
 </head>
 <body>
 <header>
     <div class="headerText">
-        <h1>Hannes Spel & Statistik</h1>
+        <h1>Hannes Yatzy & Hus</h1>
         <h3>Byggd på ramverket Symfony</h3>
     </div>
     <nav>
     {% for link in navLinks %}
-        <a href="{{baseUrl}}public/{{ link.link }}">{{ link.label }}</a>
+        <a href="{{baseUrl}}public/{{ link.link }}" {% if link.link == current[1] %} class="active" {% endif %} >{{ link.label }}</a>
     {% endfor %}
     </nav>
 </header>

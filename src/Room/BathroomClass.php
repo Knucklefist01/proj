@@ -20,6 +20,16 @@ class BathroomClass extends RoomClass
         parent::__construct($id, $houseId, $name, $windows, $floor);
     }
 
+    public function getSinks()
+    {
+        return $this->sinks;
+    }
+
+    public function getToilets()
+    {
+        return $this->toilets;
+    }
+
     public function getType()
     {
         return "Bathroom";

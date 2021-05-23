@@ -7,8 +7,10 @@
     <div class="yatzyGame">
         <div class="gameArea">
             <div class="area">
-            {% for value in hand %}
-                <img src="../resources/img/dice{{value}}.png" class="" alt="dice">
+            {% for key,value in hand %}
+                <label for="cube{{key}}">
+                    <img src="../resources/img/dice{{value}}.png" class="diceImg" alt="dice">
+                </label>
             {% endfor %}
             </div>
             <div class="buttons">

@@ -20,6 +20,16 @@ class BedroomClass extends RoomClass
         parent::__construct($id, $houseId, $name, $windows, $floor);
     }
 
+    public function getBed()
+    {
+        return $this->bed;
+    }
+
+    public function getEnSuite()
+    {
+        return $this->enSuite;
+    }
+
     public function getType()
     {
         return "Bedroom";

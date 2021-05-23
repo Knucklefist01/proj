@@ -37,6 +37,7 @@ class SessionController extends AbstractController
         }
 
         session_destroy();
+        unset($_SESSION);
 
         return $this->redirect("../session");
     }

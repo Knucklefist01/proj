@@ -29,6 +29,21 @@ class RoomClass
         return $this->id;
     }
 
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getWindows()
+    {
+        return $this->windows;
+    }
+
+    public function getFloor()
+    {
+        return $this->floor;
+    }
+
     public function getType()
     {
         return "Room";

@@ -1,11 +1,71 @@
 {% include('header.html.twig') %}
-
+{#
 {{ dump(debug) }}
+#}
+{#
 {{ dump(houseObject) }}
+#}
 <main class="propertyMain">
-    
-    <div class="property">
+    <a href="."><< Tillbaka</a>
+    <!-- <a href=".">Redigera</a> -->
+    <div class="topPart">
+        <img src="https://cdn.pixabay.com/photo/2020/01/23/11/02/sweden-4787445_1280.jpg">
+        <div class="info">
+            <h1>{{ houseObject.getAddress() }}</h1>
+            <div class="description">{{ houseObject.getDescription() }}</div>
+        </div>
     </div>
+    <div class="bottomPart">
+        <h1>Antal Rum: {{ houseObject.getRooms()|length }}</h1>
+        {% for room in houseObject.getRooms() %}
+
+        {% if room.getType() == "Bedroom" %}
+        <div class="room bedroom">
+            <h2>Sovrum - "{{ room.getName() }}"</h2>
+            <div class="roomInfo">
+                <div><b>Våning:</b>     {{ room.getFloor() }}</div>
+                <div><b>Fönster:</b>    {{ room.getWindows() }}</div>
+                <div><b>Säng:</b>       {{ room.getBed() }}</div>
+            </div>
+            
+            {% if room.getEnSuite() %}
+            <div class="enSuite">
+                <h3>En Suite - "{{ room.getEnSuite().getName() }}"</h3>
+                <div><b>Fönster:</b>    {{ room.getEnSuite().getWindows() }}</div>
+                <div><b>Handfat:</b>    {{ room.getEnSuite().getSinks() }}</div>
+                <div><b>Toaletter:</b>  {{ room.getEnSuite().getToilets() }}</div>
+            </div>
+            {% else %}
+            <div class="noSuite">
+                <h3>Ingen En Suite</h3>
+            </div>
+            {% endif %}
+            
+        </div>
+        {% elseif room.getType() == "Bathroom"  %}
+        <div class="room bathroom">
+            <h2>Badrum - "{{ room.getName() }}"</h2>
+            <div class="roomInfo">
+                <div><b>Våning:</b>     {{ room.getFloor() }}</div>
+                <div><b>Fönster:</b>    {{ room.getWindows() }}</div>
+                <div><b>Handfat:</b>    {{ room.getSinks() }}</div>
+                <div><b>Toaletter:</b>  {{ room.getToilets() }}</div>
+            </div>
+        </div>
+        {% else %}
+        <div class="room regroom">
+            <h2>Övrigt rum - "{{room.getName()}}"</h2>
+            <div class="roomInfo">
+                <div><b>Våning:</b>     {{ room.getFloor() }}</div>
+                <div><b>Fönster:</b>    {{ room.getWindows() }}</div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+    </div>
+    
+    
 
 </main>
 

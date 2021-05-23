@@ -37,7 +37,8 @@ class RealtorController extends AbstractController
         foreach ($houses as $house) {
             $toAdd =  new HouseClass(
                 $house->getId(),
-                $house->getAddress()
+                $house->getAddress(),
+                $house->getDescription()
             );
             $this->houseArray[$house->getId()] = $toAdd;
         }
