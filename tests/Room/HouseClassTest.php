@@ -6,8 +6,8 @@ namespace App\Room;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-
 use App\Room\RoomClass;
+
 /**
  * Test cases for the controller Debug.
  */
@@ -23,7 +23,7 @@ class HouseClassTest extends TestCase
     }
 
     public function testGets()
-    {   
+    {
         $house = new HouseClass(1, "Testgatan 1", "Detta huset är ett test");
         $house->addRoom(new RoomClass(1, 1, "Testrum", 2, 1));
 

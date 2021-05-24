@@ -22,7 +22,7 @@ class BathroomClassTest extends TestCase
     }
 
     public function testGets()
-    {   
+    {
         $room = new BathroomClass(1, 1, "TEST", 2, 1, 1, 2);
 
         $this->assertEquals($room->getId(), 1);

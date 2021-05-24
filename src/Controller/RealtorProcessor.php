@@ -20,7 +20,7 @@ class RealtorProcessor extends AbstractController
     */
     public function createHouse()
     {
-        if(isset($_POST["createHouse"])) {
+        if (isset($_POST["createHouse"])) {
             $entityManager = $this->getDoctrine()->getManager();
 
             $newHouse = new House();
@@ -41,12 +41,11 @@ class RealtorProcessor extends AbstractController
     */
     public function house()
     {
-        $result = "";
         $houseId = $_POST["houseId"];
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        if(isset($_POST["editHouse"])) {
+        if (isset($_POST["editHouse"])) {
             $room = $entityManager->getRepository(House::class)->find($houseId);
 
             $room->setAddress($_POST["editAddress"]);
@@ -54,27 +53,23 @@ class RealtorProcessor extends AbstractController
 
             $entityManager->persist($room);
             $entityManager->flush();
-
-        } else if(isset($_POST["removeHouse"])) {
+        } else if (isset($_POST["removeHouse"])) {
             $room = $entityManager->getRepository(House::class)->find($houseId);
 
             $entityManager->remove($room);
             $entityManager->flush();
 
             return $this->redirect("houses");
-
-        } else if(isset($_POST["addRoom"])) {
-            if($_POST["addType"] == "Room") {
-                $room = new Room();
-
-            } else if($_POST["addType"] == "Bedroom") {
+        } else if (isset($_POST["addRoom"])) {
+            if ($_POST["addType"] == "Bedroom") {
                 $room = new Bedroom();
                 $room->setBed($_POST["addBed"]);
-
-            } else if($_POST["addType"] == "Bathroom") {
+            } else if ($_POST["addType"] == "Bathroom") {
                 $room = new Bathroom();
                 $room->setSinks($_POST["addSinks"]);
                 $room->setToilets($_POST["addToilets"]);
+            } else {
+                $room = new Room();
             }
 
             $room->setName($_POST["addName"]);
@@ -84,8 +79,7 @@ class RealtorProcessor extends AbstractController
 
             $entityManager->persist($room);
             $entityManager->flush();
-
-        } else if(isset($_POST["addEnSuite"])) {
+        } else if (isset($_POST["addEnSuite"])) {
             $room = new Bathroom();
 
             $room->setName($_POST["addName"]);
@@ -93,7 +87,7 @@ class RealtorProcessor extends AbstractController
             $room->setFloor($_POST["addFloor"]);
             $room->setSinks($_POST["addSinks"]);
             $room->setToilets($_POST["addToilets"]);
-        
+
             $entityManager->persist($room);
             $entityManager->flush();
 
@@ -106,9 +100,7 @@ class RealtorProcessor extends AbstractController
             $entityManager->flush();
         }
 
-
-
-        return $this->redirect("edit/house/".$houseId);
+        return $this->redirect("edit/house/" . $houseId);
     }
 
 
@@ -120,18 +112,12 @@ class RealtorProcessor extends AbstractController
     */
     public function bedroom()
     {
-        $result = "";
         $houseId = $_POST["houseId"];
         $editId = $_POST["editId"];
-        $name = $_POST["editName"];
-        $floor = $_POST["editFloor"];
-        $windows = $_POST["editWindows"];
-
-        $bed = $_POST["editBed"];
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        if(isset($_POST["editBedroom"])) {
+        if (isset($_POST["editBedroom"])) {
             $room = $entityManager->getRepository(Bedroom::class)->find($editId);
 
             $room->setName($_POST["editName"]);
@@ -142,14 +128,14 @@ class RealtorProcessor extends AbstractController
 
             $entityManager->persist($room);
             $entityManager->flush();
-        } else if(isset($_POST["removeBedroom"])) {
+        } else if (isset($_POST["removeBedroom"])) {
             $room = $entityManager->getRepository(Bedroom::class)->find($editId);
 
             $entityManager->remove($room);
             $entityManager->flush();
         }
 
-        return $this->redirect("edit/house/".$houseId);
+        return $this->redirect("edit/house/" . $houseId);
         /*
         return new Response(
             var_dump($room)
@@ -163,19 +149,12 @@ class RealtorProcessor extends AbstractController
     */
     public function bathroom()
     {
-        $result = "";
         $houseId = $_POST["houseId"];
         $editId = $_POST["editId"];
-        $name = $_POST["editName"];
-        $windows = $_POST["editWindows"];
-        $floor = $_POST["editFloor"];
-
-        $sinks = $_POST["editSinks"];
-        $toilets = $_POST["editToilets"];
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        if(isset($_POST["editBathroom"])) {
+        if (isset($_POST["editBathroom"])) {
             $room = $entityManager->getRepository(Bathroom::class)->find($editId);
 
             $room->setName($_POST["editName"]);
@@ -187,14 +166,14 @@ class RealtorProcessor extends AbstractController
 
             $entityManager->persist($room);
             $entityManager->flush();
-        } else if(isset($_POST["removeBathroom"])) {
+        } else if (isset($_POST["removeBathroom"])) {
             $room = $entityManager->getRepository(Bathroom::class)->find($editId);
 
             $entityManager->remove($room);
             $entityManager->flush();
         }
 
-        return $this->redirect("edit/house/".$houseId);
+        return $this->redirect("edit/house/" . $houseId);
         /*
         return new Response(
             var_dump($room)
@@ -209,16 +188,12 @@ class RealtorProcessor extends AbstractController
     */
     public function room()
     {
-        $result = "";
         $houseId = $_POST["houseId"];
         $editId = $_POST["editId"];
-        $name = $_POST["editName"];
-        $floor = $_POST["editFloor"];
-        $windows = $_POST["editWindows"];
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        if(isset($_POST["editRoom"])) {
+        if (isset($_POST["editRoom"])) {
             $room = $entityManager->getRepository(Room::class)->find($editId);
 
             $room->setName($_POST["editName"]);
@@ -227,15 +202,14 @@ class RealtorProcessor extends AbstractController
 
             $entityManager->persist($room);
             $entityManager->flush();
-
-        } else if(isset($_POST["removeRoom"])) {
+        } else if (isset($_POST["removeRoom"])) {
             $room = $entityManager->getRepository(Room::class)->find($editId);
 
             $entityManager->remove($room);
             $entityManager->flush();
         }
 
-        return $this->redirect("edit/house/".$houseId);
+        return $this->redirect("edit/house/" . $houseId);
         /*
         return new Response(
             var_dump($room)

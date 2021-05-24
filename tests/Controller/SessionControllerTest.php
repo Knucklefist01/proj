@@ -9,10 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-
-/**
- * Test cases for the controller Debug.
- */
 class SessionControllerTest extends WebTestCase
 {
     /**
@@ -37,7 +33,7 @@ class SessionControllerTest extends WebTestCase
 
         $client = static::createClient();
         $client->request('GET', '/session/destroy');
-        
+
         $this->assertFalse(isset($_SESSION));
     }
 }

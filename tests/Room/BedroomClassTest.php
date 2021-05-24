@@ -23,7 +23,7 @@ class BedroomClassTest extends TestCase
     }
 
     public function testGets()
-    {   
+    {
         $room = new BedroomClass(1, 1, "TEST", 2, 1, "Twin");
 
         $this->assertEquals($room->getId(), 1);
@@ -36,9 +36,14 @@ class BedroomClassTest extends TestCase
     }
 
     public function testGetWithEnSuite()
-    {   
+    {
         $room = new BedroomClass(
-            1, 1, "TEST", 2, 1, "Twin",
+            1,
+            1,
+            "TEST",
+            2,
+            1,
+            "Twin",
             new BathroomClass(1, null, "TEST BATHROOM", 2, 1, 2, 1)
         );
 

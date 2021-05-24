@@ -9,8 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-
-
 class DefaultControllerTest extends WebTestCase
 {
 

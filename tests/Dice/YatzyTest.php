@@ -73,7 +73,7 @@ class YatzyTest extends TestCase
         $yatzy->calcOptions();
         $check = $yatzy->getData();
         $this->assertTrue($check["scoreOptions"]["Three of a kind"] > 0);
-        
+
         $yatzy->setData("hand", [1,1,1,2,2]);
         $yatzy->calcOptions();
         $check = $yatzy->getData();

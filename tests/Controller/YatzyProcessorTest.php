@@ -10,7 +10,6 @@ use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Response;
 use App\Dice\Yatzy;
 
-
 class YatzyProcessorTest extends TestCase
 {
     /**
@@ -135,7 +134,6 @@ class YatzyProcessorTest extends TestCase
     /*
     public function testSaveWithScore()
     {
-        
         session_start();
         $_SESSION["yatzyGame"] = new Yatzy();
         $processor = new YatzyProcessor();
@@ -146,7 +144,6 @@ class YatzyProcessorTest extends TestCase
         $processor->__invoke();
 
         $this->assertFalse(isset($_SESSION["yatzyGame"]));
-        
     }
     */
 }

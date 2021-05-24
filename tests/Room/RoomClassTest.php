@@ -25,7 +25,7 @@ class RoomClassTest extends TestCase
      * Test rolling and getting roll
      */
     public function testGets()
-    {   
+    {
         $room = new RoomClass(1, 1, "TEST", 2, 1);
 
         $this->assertEquals($room->getId(), 1);

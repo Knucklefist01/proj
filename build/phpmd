@@ -1,0 +1,25 @@
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Controller\RealtorController.php:28	The method arrangeObject() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Controller\RealtorProcessor.php:71	The method house uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Controller\ScoresController.php:15	The method collectHisto() has a Cyclomatic Complexity of 33. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Controller\ScoresController.php:108	The method yatzyOrder uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Controller\YatzyProcessor.php:19	The method __invoke() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:14	The class Yatzy has an overall complexity of 56 which is very high. The configured complexity threshold is 50.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:104	The method pickPoints uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:124	The method throwDice uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:156	The method checkStraights() has a Cyclomatic Complexity of 23. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:173	The method calcOptions() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:173	The method calcOptions() has an NPath complexity of 300. The configured NPath complexity threshold is 200.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Dice\Yatzy.php:232	The method calcOptions uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Bathroom.php:18	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Bedroom.php:18	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\House.php:18	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Room.php:18	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Entity\Score.php:18	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Kernel.php:14	Avoid assigning values to variables in if clauses and the like (line '22', column '27').
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Kernel.php:27	Avoid assigning values to variables in if clauses and the like (line '34', column '27').
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Room\BathroomClass.php:15	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Room\BedroomClass.php:15	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Room\HouseClass.php:12	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Room\HouseClass.php:17	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Room\RoomClass.php:12	Avoid variables with short names like $id. Configured minimum length is 3.
+C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\src\Room\RoomClass.php:18	Avoid variables with short names like $id. Configured minimum length is 3.

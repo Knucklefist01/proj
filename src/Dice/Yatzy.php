@@ -99,9 +99,7 @@ class Yatzy
 
         foreach ($this->data["scoreCategories"] as $singleCat) {
             if (isset($this->data["scoreLocked"][$singleCat])) {
-                if ($singleCat == "Sum") {
-                    continue;
-                } else {
+                if ($singleCat != "Sum") {
                     $this->data["scoreTotal"] += $this->data["scoreLocked"][$singleCat];
                 }
             }

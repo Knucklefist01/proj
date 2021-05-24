@@ -74,8 +74,6 @@ class ScoresController extends AbstractController
             ->getRepository(Score::class)
             ->findAll();
 
-        
-        
         $histo = $this->collectHisto($entityManager);
 
         array_push($this->debug, $histo);
@@ -98,15 +96,15 @@ class ScoresController extends AbstractController
         if ($order == 1) {
             $scores = $entityManager
                 ->getRepository(Score::class)
-                ->findBy(array(),array('value' => 'ASC'));
+                ->findBy(array(), array('value' => 'ASC'));
         } else if ($order == 2) {
             $scores = $entityManager
                 ->getRepository(Score::class)
-                ->findBy(array(),array('value' => 'DESC'));
+                ->findBy(array(), array('value' => 'DESC'));
         } else if ($order == 3) {
             $scores = $entityManager
                 ->getRepository(Score::class)
-                ->findBy(array(),array('id' => 'DESC'));
+                ->findBy(array(), array('id' => 'DESC'));
         } else {
             $scores = $entityManager
                 ->getRepository(Score::class)

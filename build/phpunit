@@ -1,19 +1,11 @@
 PHPUnit 9.5.4 by Sebastian Bergmann and contributors.
 
-...F.....................................                         41 / 41 (100%)
+............................................                      44 / 44 (100%)
 
-Time: 00:08.607, Memory: 38.00 MB
+Time: 00:08.070, Memory: 38.00 MB
 
-There was 1 failure:
+OK (44 tests, 89 assertions)
 
-1) App\Controller\RealtorProcessorTest::testCreateHouse
-Failed asserting that 302 matches expected 201.
+Generating code coverage report in Clover XML format ... done [00:00.032]
 
-C:\cygwin64\home\Hannes\dbwebb-kurser\mvc\me\proj\tests\Controller\RealtorProcessorTest.php:42
-
-FAILURES!
-Tests: 41, Assertions: 86, Failures: 1.
-
-Generating code coverage report in Clover XML format ... done [00:00.034]
-
-Generating code coverage report in HTML format ... done [00:00.136]
+Generating code coverage report in HTML format ... done [00:00.122]

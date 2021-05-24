@@ -9,11 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-
-
 class ScoresControllerTest extends WebTestCase
 {
-    
+
     private static $client = null;
 
     public function setUp(): void
@@ -28,7 +26,7 @@ class ScoresControllerTest extends WebTestCase
     {
         self::ensureKernelShutdown();
     }
-    
+
 
     public function testHighscores()
     {

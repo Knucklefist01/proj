@@ -11,6 +11,7 @@
         <directory suffix=".php">src/Entity</directory>
         <directory suffix=".php">src/Repository</directory>
         <file>src/Kernel.php</file>
+        <file>src/Controller/RealtorProcessor.php</file>
     </exclude>
     <report>
         <clover outputFile="build/coverage.clover"/>

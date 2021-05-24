@@ -29,7 +29,7 @@ class DiceHandTest extends TestCase
         $hand = new DiceHand();
         $hand->roll();
         $truth = [];
-        foreach($hand->dices as $die) {
+        foreach ($hand->dices as $die) {
             array_push($truth, $die->getLastRoll());
         }
         $check = $hand->getLastRoll();
