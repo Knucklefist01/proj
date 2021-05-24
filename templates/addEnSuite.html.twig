@@ -1,0 +1,30 @@
+{% include('header.html.twig') %}
+
+{#
+{{ dump(houseObject) }}
+#}
+<main class="propertyMain">
+    <h1>Lägg till Ensuite - "{{ roomObject.getName() }}" (id: {{roomObject.getId()}})</h1>
+
+    <form  action="../../../editHouse" method="post" class="addForm">
+        <input type="hidden" name="houseId" value="{{ houseId }}">
+
+        <input type="hidden" name="editId"  value="{{ bedroomId }}">
+        <input type="hidden" name="addFloor" id="addFloor" value="{{roomObject.getFloor()}}">
+
+        <label for="addName">Namn:</label>
+        <input type="text" name="addName" id="addName" required><br>    
+        <label for="addWindows">Fönster:</label>
+        <input type="number" name="addWindows" id="addWindows" value="0" min="0" required><br>
+
+        <label for="addSinks">Handfat:</label>
+        <input type="number" name="addSinks" id="addSinks" value="1"><br>
+        <label for="addToilets">Toaletter:</label>
+        <input type="number" name="addToilets" id="addToilets" value="1"><br>
+        
+        <input type="submit" name="addEnSuite" value="Lägg Till"><br>
+    </form>
+
+</main>
+
+{% include('footer.html.twig') %}

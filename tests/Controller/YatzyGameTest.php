@@ -22,7 +22,6 @@ class YatzyGameTest extends WebTestCase
         $client->request('GET', '/yatzy');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('title', 'MVC Projekt | Yatzy');
         $this->assertTrue(isset($_SESSION["yatzyGame"]));
     }
 }

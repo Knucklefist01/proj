@@ -1,0 +1,140 @@
+{% include('header.html.twig') %}
+
+{#
+{{ dump(houseObject) }}
+#}
+{%
+set baseUrl = app.request.getBaseURL()|replace({"public": ""})
+%}
+<main class="propertyMain">
+    <a href="../../houses/{{houseId}}" class="backLink"><< Tillbaka</a>
+    <h1>Redigera hus - {{ houseId }} (id: {{houseObject.getId()}})</h1>
+
+    <form  action="../../editHouse" method="post" id="editHouseForm" class="editForm">
+        <input type="hidden" name="houseId" value="{{ houseId }}">
+
+        <label>Address</label><br>
+        <input type="text" name="editAddress" id="editAddress" value="{{ houseObject.getAddress() }}" required><br>
+        <label for="editDesc">Beskrivning</label><br>
+        <textarea id="editDesc" name="editDesc" rows="4" cols="50">{{ houseObject.getDescription() }}</textarea><br>
+
+        <input type="submit" id="editHouse" name="editHouse" value="Redigera Hus">
+        <input type="submit" id="removeHouse" name="removeHouse" value="Radera Hus">
+    </form>
+
+    <a href="{{baseUrl}}public/add/room/{{houseId}}" class="addRoom">Lägg till rum</a>
+    
+
+    {% for room in houseObject.getRooms() %}
+
+    {% if room.getType() == "Bedroom" %}
+
+
+    <div class="editRoom">
+        <form  action="../../editBedroom" method="post" id="editBedroom" class="editForm bedroomForm">
+            <h2>Redigera Sovrum - "{{ room.getName() }}" (id: {{room.getId()}})</h2>
+            <input type="hidden" name="houseId" value="{{ houseId }}">
+
+            <input type="hidden" name="editId" value="{{ room.getId() }}">
+
+            <label for="editName">Namn</label>
+            <input type="text" name="editName" id="editName" value="{{ room.getName() }}" required><br>
+            <label for="editFloor">Våning</label>
+            <input type="number" name="editFloor" id="editFloor" value="{{ room.getFloor() }}" required><br>
+            <label for="editWindows">Fönster</label>
+            <input type="number" name="editWindows" id="editWindows" value="{{ room.getWindows() }}" required><br>
+            <label for="editBed">Säng</label>
+            <input type="text" name="editBed" id="editBed" value="{{ room.getBed() }}" required><br>
+
+            <input type="submit" id="editBedroom" name="editBedroom" value="Redigera Sovrum">
+            <input type="submit" id="removeBedroom" name="removeBedroom" value="Radera Sovrum">
+        </form>
+
+        {% if room.getEnSuite() %}
+
+        <form  action="../../editBathroom" method="post" id="editEnSuite" class="editForm enSuiteForm">
+            <h2>Redigera Ensuite - "{{ room.getEnSuite().getName() }}" (id: {{room.getId()}})</h2>
+
+            <input type="hidden" name="houseId" value="{{ houseId }}">
+
+            <input type="hidden" name="editId" value="{{ room.getEnSuite().getId() }}">
+            <input type="hidden" name="editFloor" id="editFloor" value="{{ room.getEnSuite().getFloor() }}" required><br>
+
+            <label for="editName">Namn</label>
+            <input type="text" name="editName" id="editName" value="{{ room.getEnSuite().getName() }}" required><br>
+            <label for="editWindows">Fönster</label>
+            <input type="number" name="editWindows" id="editWindows" value="{{ room.getEnSuite().getWindows() }}" min="0" required><br>
+            <label for="editSinks">Handfat</label>
+            <input type="number" name="editSinks" id="editSinks" value="{{ room.getEnSuite().getSinks() }}" min="0" required><br>
+            <label for="editToilets">Handfat</label>
+            <input type="number" name="editToilets" id="editToilets" value="{{ room.getEnSuite().getToilets() }}" min="0" required><br>
+
+            <input type="submit" id="editBathroom" name="editBathroom" value="Redigera Ensuite">
+            <input type="submit" id="removeBathroom" name="removeBathroom" value="Radera Ensuite">
+        </form>
+
+        {% else %}
+            <h2>Inte "Ensuite"</h2>
+            <a href="../../add/ensuite/{{ houseId }}/{{ room.getId() }}">Lägg till</a>
+        {% endif %}
+    </div>
+
+
+    {% elseif room.getType() == "Bathroom"  %}
+
+
+    <div class="editRoom">
+        <form  action="../../editBathroom" method="post" id="editBathroom" class="editForm bathroomForm">
+            <h2>Badrum - "{{ room.getName() }}" (id: {{room.getId()}})</h2>
+
+            <input type="hidden" name="houseId" value="{{ houseId }}">
+
+            <input type="hidden" name="editId" value="{{ room.getId() }}">
+
+            <label for="editName">Namn</label>
+            <input type="text" name="editName" id="editName" value="{{ room.getName() }}" required><br>
+            <label for="editFloor">Våning</label>
+            <input type="number" name="editFloor" id="editFloor" value="{{ room.getFloor() }}" required><br>
+            <label for="editWindows">Fönster</label>
+            <input type="number" name="editWindows" id="editWindows" value="{{ room.getWindows() }}" required><br>
+            <label for="editSinks">Handfat</label>
+            <input type="number" name="editSinks" id="editSinks" value="{{ room.getSinks() }}" required><br>
+            <label for="editToilets">Toaletter</label>
+            <input type="number" name="editToilets" id="editToilets" value="{{ room.getToilets() }}" required><br>
+
+            <input type="submit" id="editBathroom" name="editBathroom" value="Redigera Badrum">
+            <input type="submit" id="removeBathroom" name="removeBathroom" value="Radera Badrum">
+        </form>
+    </div>
+
+
+    {% else %}
+
+
+    <div class="editRoom">
+        <form  action="../../editRoom" method="post" id="editEnSuite" class="editForm bathroomForm">
+            <h2>Övrigt rum - "{{ room.getName() }}" (id: {{room.getId()}})</h2>
+
+            <input type="hidden" name="houseId" value="{{ houseId }}">
+
+            <input type="hidden" name="editId" value="{{ room.getId() }}">
+
+            <label for="editName">Namn</label>
+            <input type="text" name="editName" id="editName" value="{{ room.getName() }}" required><br>
+            <label for="editFloor">Våning</label>
+            <input type="number" name="editFloor" id="editFloor" value="{{ room.getFloor() }}" required><br>
+            <label for="editWindows">Fönster</label>
+            <input type="number" name="editWindows" id="editWindows" value="{{ room.getWindows() }}" required><br>
+
+            <input type="submit" id="editRoom" name="editRoom" value="Redigera Rum">
+            <input type="submit" id="removeRoom" name="removeRoom" value="Radera Rum">
+        </form>
+    </div>
+
+
+    {% endif %}
+
+    {% endfor %}
+</main>
+
+{% include('footer.html.twig') %}

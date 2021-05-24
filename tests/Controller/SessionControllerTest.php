@@ -26,7 +26,6 @@ class SessionControllerTest extends WebTestCase
         $client->request('GET', '/session');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('title', 'MVC Projekt | Session');
     }
 
     /**

@@ -1,9 +1,15 @@
 {% include('header.html.twig') %}
 
+{%
+set baseUrl = app.request.getBaseURL()|replace({"public": ""})
+%}
+
 <main class="scoresMain">
 {#
 {{ dump(data) }}
+
 {{ dump(histo) }}
+
 {{ dump(debug) }}
 #}
 
@@ -17,19 +23,22 @@
         </div>
 
         <div class="xAxis">
-            <h2>Poäng</h2>
+            <h2>Resultat</h2>
             {% for x in range(1, 15) %}
             <div class="xLabel">{{x * 25}}</div>
             {% endfor %}
         </div>
 
         {% for pole in histo %}
-        <div class="pole part{{ loop.index }}" style="height: {{ (pole|length) * (40 / 2) }}px;"></div>
+        <div class="pole part{{ loop.index }}" style="height: {{ (pole|length) * (50 / 2) }}px;"></div>
         {% endfor %}
     </div>
     
     <h2>Max Poäng: 375</h2>
     <table class="scoresTable">
+        <h3>Sortera: </h3>
+        <a href="{{baseUrl}}public/highscores/1" class="sortLink">Poäng stigande</a><br>
+        <a href="{{baseUrl}}public/highscores/2" class="sortLink">Poäng minskande</a>
         <tr>
             <th>Poäng</th><th>% av Max</th>
         </tr>

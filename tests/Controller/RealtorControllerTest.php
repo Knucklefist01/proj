@@ -13,22 +13,32 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RealtorControllerTest extends WebTestCase
 {
+    private static $client = null;
+
+    public function setUp(): void
+    {
+        self::ensureKernelShutdown();
+        if (null === self::$client) {
+            self::$client = static::createClient();
+        }
+    }
+
+    public function tearDown(): void
+    {
+        self::ensureKernelShutdown();
+    }
 
     public function testHouses()
     {
-        $client = static::createClient();
-        $client->request('GET', '/houses');
+        self::$client->request('GET', '/houses');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('title', 'MVC Projekt | Houses');
     }
 
     public function testHouseID()
     {
-        $client = static::createClient();
-        $client->request('GET', '/houses/1');
+        self::$client->request('GET', '/houses/1');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('title', 'MVC Projekt | Houses');
     }
 }

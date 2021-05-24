@@ -3,11 +3,11 @@
 {# {{ dump(debug) }} #}
 
 {# {{ dump(objects) }} #}
-<main class="houseMain">
-    
+<main class="realtorMain">
+    <a href="create/house" class="createLink">Skapa nytt hus >></a>
 
     {% for house in objects %}
-    <a href="houses/{{house.getId()}}">
+    <a href="houses/{{house.getId()}}" class="houseLink">
         <div class="house">
             <img src="https://cdn.pixabay.com/photo/2020/01/23/11/02/sweden-4787445_1280.jpg">
             <h2>{{house.getAddress()}}</h2>

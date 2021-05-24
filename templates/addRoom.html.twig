@@ -1,0 +1,76 @@
+{% include('header.html.twig') %}
+
+{#
+{{ dump(houseObject) }}
+#}
+{%
+set baseUrl = app.request.getBaseURL()|replace({"public": ""})
+%}
+<main class="propertyMain">
+    <a href="../../edit/house/{{houseId}}" class="backLink"><< Tillbaka</a>
+    <h1>Lägg till rum - {{ houseObject.getAddress() }}</h1>
+
+    <form  action="../../editHouse" method="post" class="addForm">
+        <input type="hidden" name="houseId" value="{{ houseId }}">
+
+        <input type="hidden" name="editId"  value="{{ houseId }}">
+
+        <label for="addName">Namn:</label>
+        <input type="text" name="addName" id="addName" required><br>
+        <label for="addFloor">Våning:</label>
+        <input type="number" name="addFloor" id="addFloor" value="1" required><br>
+        <label for="addWindows">Fönster:</label>
+        <input type="number" name="addWindows" id="addWindows" value="0" min="0" required><br>
+
+        <br>
+
+        <input type="radio" id="room" name="addType" value="Room" onclick="checkRoom()" checked required>
+        <label for="room">Övrigt rum</label><br>
+        <input type="radio" id="bedroom" name="addType" value="Bedroom" onclick="checkRoom()" required>
+        <label for="bedroom">Sovrum</label><br>
+        <input type="radio" id="bathroom" name="addType" value="Bathroom" onclick="checkRoom()" required>
+        <label for="bathroom">Badrum</label><br>
+
+        <div id="bedroomInputs">
+            <label for="addBed">Säng:</label>
+            <select name="addBed" id="addBed">
+                <option value="Twin">Twin</option>
+                <option value="Twin XL">Twin XL</option>
+                <option value="Full">Full</option>
+                <option value="Queen">Queen</option>
+                <option value="King">King</option>
+            </select>
+        </div>
+
+        <div id="bathroomInputs">
+            <label for="addSinks">Handfat:</label>
+            <input type="number" name="addSinks" id="addSinks" value="1"><br>
+            <label for="addToilets">Toaletter:</label>
+            <input type="number" name="addToilets" id="addToilets" value="1"><br>
+        </div>
+        
+        <input type="submit" name="addRoom" value="Lägg Till"><br>
+    </form>
+
+</main>
+<script type="text/javascript">
+
+function checkRoom() {
+    if (document.getElementById('room').checked) {
+        document.getElementById('bedroomInputs').style.display = 'none';
+        document.getElementById('bathroomInputs').style.display = 'none';
+    } 
+    else if(document.getElementById('bedroom').checked) {
+        document.getElementById('bedroomInputs').style.display = 'block';
+        document.getElementById('bathroomInputs').style.display = 'none';
+   }
+   else if(document.getElementById('bathroom').checked) {
+        document.getElementById('bedroomInputs').style.display = 'none';
+        document.getElementById('bathroomInputs').style.display = 'block';
+   }
+}
+
+checkRoom();
+</script>
+
+{% include('footer.html.twig') %}

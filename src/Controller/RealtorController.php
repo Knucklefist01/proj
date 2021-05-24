@@ -141,7 +141,56 @@ class RealtorController extends AbstractController
             "debug" => $this->debug,
             "houseId" => $houseId,
             "houseObject" => $this->houseArray[$houseId],
+        ]);
+    }
 
+    /**
+     * @Route("/create/house")
+    */
+    public function createHouse(): Response
+    {
+        return $this->render('createHouse.html.twig');
+    }
+
+    /**
+     * @Route("/edit/house/{houseId}")
+    */
+    public function editHouse(int $houseId, EntityManagerInterface $entityManager): Response
+    {
+        $this->arrangeObject($entityManager);
+
+        return $this->render('editHouse.html.twig', [
+            "houseId" => $houseId,
+            "houseObject" => $this->houseArray[$houseId],
+        ]);
+    }
+
+    /**
+     * @Route("/add/room/{houseId}")
+    */
+    public function addRoom(int $houseId, EntityManagerInterface $entityManager): Response
+    {
+        $this->arrangeObject($entityManager);
+
+        return $this->render('addRoom.html.twig', [
+            "houseId" => $houseId,
+            "houseObject" => $this->houseArray[$houseId],
+        ]);
+    }
+
+    /**
+     * @Route("/add/ensuite/{houseId}/{bedroomId}")
+    */
+    public function addEnSuite(int $houseId, int $bedroomId): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $room = $entityManager->getRepository(Bedroom::class)->find($bedroomId);
+
+
+        return $this->render('addEnSuite.html.twig', [
+            "houseId" => $houseId,
+            "roomObject" => $room,
+            "bedroomId" => $bedroomId,
         ]);
     }
 }

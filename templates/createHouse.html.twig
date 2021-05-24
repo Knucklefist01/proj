@@ -1,0 +1,14 @@
+{% include('header.html.twig') %}
+
+<main class="propertyMain">
+    <h1>Skapa hus</h1>
+    <form action="../createHouse" method="post" id="createHouse">
+        <label for="houseAddress">Address</label><br>
+        <input type="text" id="houseAddress" name="houseAddress" placeholder="Address"><br><br>
+        <label for="houseDesc">Beskrivning</label><br>
+        <textarea id="houseDesc" name="houseDesc" rows="4" cols="50" placeholder="Beskrivning"></textarea><br>
+        <input type="submit" id="createHouse" name="createHouse" value="Skapa Hus">
+    </form>
+</main>
+
+{% include('footer.html.twig') %}

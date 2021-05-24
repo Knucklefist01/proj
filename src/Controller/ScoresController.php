@@ -10,27 +10,24 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ScoresController extends AbstractController
 {
-    /**
-     * @Route("/highscores")
-    */
-    public function yatzyScores(EntityManagerInterface $entityManager)
+    private $debug = [];
+
+    public function collectHisto(EntityManagerInterface $entityManager)
     {
         $scores = $entityManager
             ->getRepository(Score::class)
             ->findAll();
 
-        $debug = [];
         $histo = [];
 
         for ($x = 0; $x < 15; $x++) {
             $histo[$x] = [];
         }
-        array_push($debug, $histo);
 
         foreach ($scores as $score) {
-            array_push($debug, $score->getValue());
-
             $value = $score->getValue();
+
+            array_push($this->debug, $value);
 
             if ($value > 0 && $value <= 25) {
                 array_push($histo[0], $value);
@@ -65,10 +62,63 @@ class ScoresController extends AbstractController
             }
         }
 
+        return $histo;
+    }
+
+    /**
+     * @Route("/highscores")
+    */
+    public function yatzyScores(EntityManagerInterface $entityManager)
+    {
+        $scores = $entityManager
+            ->getRepository(Score::class)
+            ->findAll();
+
+        
+        
+        $histo = $this->collectHisto($entityManager);
+
+        array_push($this->debug, $histo);
+
         return $this->render('scores.html.twig', [
             "data" => $scores,
             "histo" => $histo,
-            "debug" => $debug
+            "debug" => $this->debug
+        ]);
+    }
+
+    /**
+     * @Route("/highscores/{order}")
+    */
+    public function yatzyOrder(int $order, EntityManagerInterface $entityManager)
+    {
+        $debug = [];
+        $histo = $this->collectHisto($entityManager);
+
+        if ($order == 1) {
+            $scores = $entityManager
+                ->getRepository(Score::class)
+                ->findBy(array(),array('value' => 'ASC'));
+        } else if ($order == 2) {
+            $scores = $entityManager
+                ->getRepository(Score::class)
+                ->findBy(array(),array('value' => 'DESC'));
+        } else if ($order == 3) {
+            $scores = $entityManager
+                ->getRepository(Score::class)
+                ->findBy(array(),array('id' => 'DESC'));
+        } else {
+            $scores = $entityManager
+                ->getRepository(Score::class)
+                ->findAll();
+        }
+
+        array_push($debug, $histo);
+
+        return $this->render('scores.html.twig', [
+            "data" => $scores,
+            "histo" => $histo,
+            "debug" => $this->debug
         ]);
     }
 }

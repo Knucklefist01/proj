@@ -57,7 +57,7 @@ class Bedroom
         return $this->houseId;
     }
 
-    public function setHouseId(int $houseId): self
+    public function setHouseId(?int $houseId): self
     {
         $this->houseId = $houseId;
 

@@ -6,8 +6,8 @@
 {{ dump(houseObject) }}
 #}
 <main class="propertyMain">
-    <a href="."><< Tillbaka</a>
-    <!-- <a href=".">Redigera</a> -->
+    <a href="." class="backLink"><< Tillbaka</a>
+    <a href="../edit/house/{{ houseId }}">Redigera / Radera</a>
     <div class="topPart">
         <img src="https://cdn.pixabay.com/photo/2020/01/23/11/02/sweden-4787445_1280.jpg">
         <div class="info">
@@ -30,14 +30,14 @@
             
             {% if room.getEnSuite() %}
             <div class="enSuite">
-                <h3>En Suite - "{{ room.getEnSuite().getName() }}"</h3>
+                <h3>Ensuite - "{{ room.getEnSuite().getName() }}"</h3>
                 <div><b>Fönster:</b>    {{ room.getEnSuite().getWindows() }}</div>
                 <div><b>Handfat:</b>    {{ room.getEnSuite().getSinks() }}</div>
                 <div><b>Toaletter:</b>  {{ room.getEnSuite().getToilets() }}</div>
             </div>
             {% else %}
             <div class="noSuite">
-                <h3>Ingen En Suite</h3>
+                <h3>Inte "Ensuite"</h3>
             </div>
             {% endif %}
             
