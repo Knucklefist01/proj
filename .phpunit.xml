@@ -11,7 +11,9 @@
         <directory suffix=".php">src/Entity</directory>
         <directory suffix=".php">src/Repository</directory>
         <file>src/Kernel.php</file>
-        <file>src/Controller/RealtorProcessor.php</file>
+        <file>src/Controller/RealtorProcessor.php</file> <!--Alla funktioner jobbar mot databasen, behövdes inte inkluderas i tester enligt mos-->
+        <file>src/Controller/ScoresController.php</file> <!--Alla funktioner jobbar mot databasen, behövdes inte inkluderas i tester enligt mos-->
+        <file>src/Controller/RealtorController.php</file> <!--Alla funktioner jobbar mot databasen, behövdes inte inkluderas i tester enligt mos-->
     </exclude>
     <report>
         <clover outputFile="build/coverage.clover"/>

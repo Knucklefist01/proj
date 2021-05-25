@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ScoresControllerTest extends WebTestCase
 {
-
+    
     private static $client = null;
 
     public function setUp(): void
@@ -62,4 +62,5 @@ class ScoresControllerTest extends WebTestCase
 
         $this->assertResponseIsSuccessful();
     }
+    
 }
