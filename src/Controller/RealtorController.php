@@ -44,7 +44,7 @@ class RealtorController extends AbstractController
         }
 
         foreach ($rooms as $index => $room) {
-            if ($room->getHouseId()) {
+            if ($room->getHouseId() and isset($this->houseArray[$room->getHouseId()]) ) {
                 $this->houseArray[$room->getHouseId()]->addRoom(
                     new RoomClass(
                         $rooms[$index]->getId(),
@@ -58,7 +58,7 @@ class RealtorController extends AbstractController
         }
 
         foreach ($bedrooms as $index => $bed) {
-            if ($bed->getHouseId()) {
+            if ($bed->getHouseId() and isset($this->houseArray[$room->getHouseId()])) {
                 $enSuite = null;
 
                 if ($bedrooms[$index]->getEnSuite()) {
@@ -92,7 +92,7 @@ class RealtorController extends AbstractController
         }
 
         foreach ($bathrooms as $index => $bath) {
-            if ($bath->getHouseId()) {
+            if ($bath->getHouseId() and isset($this->houseArray[$room->getHouseId()])) {
                 $this->houseArray[$bath->getHouseId()]->addRoom(
                     new BathroomClass(
                         $bathrooms[$index]->getId(),

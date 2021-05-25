@@ -1,0 +1,78 @@
+Detta är pseudokoden för Yatzy
+
+sätt kast = 0;
+hämta alla poängalternativen
+
+
+if (kast < 4) {
+    Visa "Kasta"-knappen
+} else {
+    if (alla poängalternativen är ifyllda) {
+        Visa "Game Over"
+    } else {
+        Visa "Välj ett alternativ från listan"!
+    }
+}
+
+
+if (spelaren kastade) {
+    kast += 1;
+
+    hämta spelarens tärningar som en lista
+
+    summera alla tärningar för sig (alla ettor, alla tvåor, osv.) och lägg till dem i poängalternativen som "Ones", "Twos" osv.
+
+    
+    if (summera alla "Ones", "Twos" osv. > 63) ) {
+        Sätt bonus = 35
+    }
+
+    if (spelaren har 3 sorters tärninger (ex: bara tvåor, fyror och sexor) ) {
+        if (spelaren har 3 utav någon av sorterna) {
+            lägg till "Three of a Kind" till poängalternativen
+        }
+    }
+
+    if (spelaren har 2 sorters tärninger (ex: bara tvåor och sexor) ) {
+
+        lägg till "Three of a Kind" till poängalternativen // Denna är garanterad
+
+        if (spelaren har 3 utav någon av sorterna) {
+            lägg till "Full House" till poängalternativen
+        }
+        if (spelaren har 4 utav någon av sorterna) {
+            lägg till "Four of a Kind" till poängalternativen
+        }
+    }
+    if (spelaren har 1 sorters tärninger (ex: bara tvåor) ) {
+
+        lägg till "Three of a Kind" till poängalternativen // Denna är garanterad
+        lägg till "Four of a Kind" till poängalternativen // Denna är också garanterad
+        lägg till "YAHTZEE" till poängalternativen // Denna är också garanterad
+    }
+
+
+
+    if (spelarens hand innehåller 1,2,3,4 ) or (spelarens hand innehåller 2,3,4,5 ) or (spelarens hand innehåller 3,4,5,6 ) {
+        lägg till "Small Straight" till poängalternativen
+    }
+
+    if (spelarens hand innehåller 1,2,3,4,5 ) or (spelarens hand innehåller 2,3,4,5,6) {
+        lägg till "Large Straight" till poängalternativen
+    }
+
+    lägg till "Chance" till poängalternativen // Denna är garanterad
+
+    ta alla poängalternativen och visa upp dem som röda knappar spelaren kan klicka på
+}
+
+
+if (spelaren valde ett alternativ) {
+    lås det alternativet så att värdet inte kan ändras och det inte visas igen
+    återställ spelet genom kast = 0
+}
+
+
+if (alla poängalternativen är ifyllda) {
+    Visa en knapp för att nollställa spelet och spara resultatet i databasen
+}
