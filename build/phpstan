@@ -1,0 +1,11 @@
+ ------ -------------------------------------- 
+ [32m Line [39m [32m src\Controller\RealtorController.php [39m 
+ ------ -------------------------------------- 
+  61     Variable $room might not be defined.  
+  95     Variable $room might not be defined.  
+ ------ -------------------------------------- 
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] Found 2 errors                                                                                                 [39;49m
+[37;41m                                                                                                                        [39;49m
+
